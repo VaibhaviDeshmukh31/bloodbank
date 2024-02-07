@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Donor</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="list_donors.html">View All Donors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="view_donor.html">View Donor by ID</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="view_by_blood_group.html">View Donors by Blood Group</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="add_donor.html">Add Donor</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="delete_donor.html">Delete Donor</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="update_donor.html">Update Donor</a>
+            </li>
+        </ul>
+        <h1>View Donor Details</h1>
+        <form id="viewDonorForm" method="GET">
+            <div class="form-group">
+                <label for="donor_id">Enter Donor ID:</label>
+                <input type="text" class="form-control" id="donor_id" name="donor_id" required>
+            </div>
+            <button type="submit" class="btn btn-primary">View Details</button>
+        </form>
+        <div id="donorDetails"></div>
+    </div>
+
+    <!-- Include Bootstrap JavaScript and jQuery (optional) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="view_donor.js"></script>
+</body>
+</html>

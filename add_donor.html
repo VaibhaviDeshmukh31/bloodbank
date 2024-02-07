@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Donor</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Donor</h1>
+        <form id="donorForm" action="add_donor.php" method="post">
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone_number">Phone Number:</label>
+                <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="date_of_birth">Date of Birth:</label>
+                <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>
+            </div>
+
+            <div class="form-group">
+                <label for="blood_type">Blood Type:</label>
+                <input type="text" class="form-control" id="blood_type" name="blood_type" required>
+            </div>
+
+            <div class="form-group">
+                <label for="donation_date">Donation Date:</label>
+                <input type="date" class="form-control" id="donation_date" name="donation_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" class="form-control" id="address" name="address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" class="form-control" id="city" name="city" required>
+            </div>
+
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" class="form-control" id="state" name="state" required>
+            </div>
+
+            <div class="form-group">
+                <label for="zip_code">ZIP Code:</label>
+                <input type="text" class="form-control" id="zip_code" name="zip_code" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Donor</button>
+        </form>
+
+        <div id="message"></div>
+
+        <script>
+            // JavaScript to handle the form submission and display a message
+            document.getElementById("donorForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Create a FormData object to send form data via AJAX
+                const formData = new FormData(this);
+
+                // Send the form data to add_donor.php using AJAX
+                fetch("add_donor.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(message => {
+                    document.getElementById("message").innerHTML = message;
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+            });
+        </script>
+    </div>
+
+    <!-- Include Bootstrap JavaScript and jQuery (optional) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
